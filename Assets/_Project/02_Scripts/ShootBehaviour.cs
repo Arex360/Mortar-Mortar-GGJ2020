@@ -84,7 +84,7 @@ public class ShootBehaviour : MonoBehaviour
         this.transform.Rotate(0, yDirection * speed * Time.deltaTime, 0);
         UpdateShootInput();
         
-        lineBehaviour.SetActive(true);
+        //lineBehaviour.SetActive(true);
         UpdateProjectileDirection();
 
     }
@@ -105,7 +105,12 @@ public class ShootBehaviour : MonoBehaviour
             {
                 ShootObject();
                 loadingShot = false;
+                lineBehaviour.SetActive(false);
                 return;
+            }
+            else
+            {
+                lineBehaviour.SetActive(true);
             }
 
             var loadingShotTime = Time.time - loadingShotStartTime;
