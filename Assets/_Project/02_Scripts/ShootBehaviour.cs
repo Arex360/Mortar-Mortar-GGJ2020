@@ -46,7 +46,7 @@ public class ShootBehaviour : MonoBehaviour
     private RestartLevelSignal restartLevelSignal;
     private ToMenuSignal toMenuSignal;
     public float speed;
-
+    public Transform position;
     private void Start()
     {
         shootAngle = - shootAngleOverTime.FirstValue();
@@ -61,6 +61,7 @@ public class ShootBehaviour : MonoBehaviour
         loadLevelSignal.AddListener(OnLoadLevel);
         restartLevelSignal.AddListener(OnRestartLevel);
         toMenuSignal.AddListener(OnRestartLevel);
+        
     }
 
     private void OnDestroy()
@@ -71,11 +72,13 @@ public class ShootBehaviour : MonoBehaviour
     }
 
     void Update(){
+        
         if (gameData.CurrentState != GameState.Game)
         {
             lineBehaviour.SetActive(false);
             return;
         }
+        this.transform.position = position.position;
         float yDirection = Input.GetAxis("Horizontal");
         //RotatePivot(yDirection);
         this.transform.Rotate(0, yDirection * speed * Time.deltaTime, 0);
