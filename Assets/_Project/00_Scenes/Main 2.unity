@@ -1317,6 +1317,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 297998608, guid: 8e786e935d67757438e01afaebaa6494, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 297998609, guid: 8e786e935d67757438e01afaebaa6494, type: 3}
       propertyPath: m_LocalScale.x
       value: 200
@@ -1328,7 +1332,7 @@ PrefabInstance:
     - target: {fileID: 5232666979316704128, guid: 8e786e935d67757438e01afaebaa6494,
         type: 3}
       propertyPath: speed
-      value: 10000
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5713010794472714593, guid: 8e786e935d67757438e01afaebaa6494,
         type: 3}

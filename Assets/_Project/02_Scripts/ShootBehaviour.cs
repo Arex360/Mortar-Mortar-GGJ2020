@@ -45,6 +45,7 @@ public class ShootBehaviour : MonoBehaviour
     private LoadLevelSignal loadLevelSignal;
     private RestartLevelSignal restartLevelSignal;
     private ToMenuSignal toMenuSignal;
+    public float speed;
 
     private void Start()
     {
@@ -76,8 +77,8 @@ public class ShootBehaviour : MonoBehaviour
             return;
         }
         float yDirection = Input.GetAxis("Horizontal");
-        RotatePivot(yDirection);
-
+        //RotatePivot(yDirection);
+        this.transform.Rotate(0, yDirection * speed * Time.deltaTime, 0);
         UpdateShootInput();
         
         lineBehaviour.SetActive(true);
@@ -140,15 +141,15 @@ public class ShootBehaviour : MonoBehaviour
         var block = instance.GetComponent<Block>();        
         block.Shoot(shootDirection * force);
         mortaShootSignal.Dispatch();
-        currentBulletIndex++;
+        //currentBulletIndex++;
         onShoot.Invoke();
-
+        /*
         var remainingItems = Math.Max(0, bulletListAsset.Prefabs.Length - currentBulletIndex);
         remainingItemsSignal.Dispatch(remainingItems);
         if (remainingItems == 0)
         {
             allBulletsShotSignal.Dispatch();
-        }
+        }*/
     }
     
     private void OnLoadLevel(LevelAsset levelAsset)

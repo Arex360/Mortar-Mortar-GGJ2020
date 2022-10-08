@@ -85,8 +85,7 @@ namespace Supyrb
 				return;
 			}
 
-			gameOverSignal.Dispatch(true);
-			currentState = GameState.GameOver;
+			
 		}
 
 		private void OnObjectFellOffFloor(GameObject obj)
@@ -97,8 +96,7 @@ namespace Supyrb
 			}
 
 			Debug.Log($"Object fell off floor: {obj.name}", obj);
-			gameOverSignal.Dispatch(false);
-			currentState = GameState.GameOver;
+			
 		}
 
 		private void OnRestartLevel()

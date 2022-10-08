@@ -79,14 +79,7 @@ namespace Supyrb
 		
 		private void OnGameOverSignal(bool success)
 		{
-			if (success)
-			{
-				gameOverWin.Invoke();
-			}
-			else
-			{
-				gameOverFail.Invoke();
-			}
+			
 		}
 
 		private void OnRestartLevelSignal()
